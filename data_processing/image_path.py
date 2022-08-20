@@ -2,7 +2,7 @@ import pandas as pd
 from tqdm.auto import tqdm
 
 def add_route(dataset, path, file_name_column):
-    """add_route
+    """Add new column with the route of the image
 
     Args:
         dataset (dataframe): dataframe whre images are located
@@ -10,7 +10,7 @@ def add_route(dataset, path, file_name_column):
         file_name_column (string): name of the column of image name
 
     Returns:
-        dataframe with route of images added
+        Dataframe: dataframe with route of images added
     """
     dataset = pd.DataFrame(dataset)
     for idx, sample in tqdm(dataset.iterrows(), total=len(dataset)):

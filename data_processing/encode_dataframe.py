@@ -1,14 +1,14 @@
 from sklearn.preprocessing import OrdinalEncoder
 
 def encoder_dataframe(dataset, category):
-    """encoder_dataframe
+    """Assign a code by category in a new column
 
     Args:
         dataset (dataframe): dataframe where categories are
         category (string): name of columnd which will be encode
 
     Returns:
-        dataframe with encoder category column
+        Dataframe: dataframe with encoder category column
     """
     encoder = OrdinalEncoder()
     encoder.fit(dataset[[category]])

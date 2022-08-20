@@ -1,14 +1,14 @@
 import pandas as pd
 
 def set_to_dataframe(categories, path):
-    """set_to_dataframe
+    """Convert file .CSV to dataframe
 
     Args:
         categories (array): arrays of categories
         path (string): route of .csv file
 
     Returns:
-        dataframe generated from .csv file
+        Dataframe: dataframe generated from .csv file
     """
     category_2 = pd.DataFrame()
     for category in categories:

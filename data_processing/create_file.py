@@ -1,10 +1,9 @@
 import os
 
 def create_file(path, categories):
-    """create_file
+    """Creation of folder andd assgin images in folders
 
     Args:
-        dataset (dataframe): dataframe
         path (string): route of files
         categories (list): list of categories
 
@@ -12,7 +11,7 @@ def create_file(path, categories):
         folders with images separated by categories
     """
     dirs = {}
-    for idx, category in enumerate(categories): 
+    for idx, category in enumerate(categories):
         os.mkdir('$path/$category')
         dirs[idx] = path+"/"+category
     print("Done! ",path)
