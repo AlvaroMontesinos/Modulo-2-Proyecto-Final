@@ -10,7 +10,7 @@
 
 [TOC]
 
-###Descripcion
+### Descripcion
 El proyecto tiene como objetivo desarrollar una solución de software aplicando buenas prácticas en la codificación, en la estrategia de modularización, como en la programación orientada a objetos, que permita registro, modificación y eliminación de imágenes y sus metadatos a través de funciones/métodos desarrollados.
 ### Estructura del Proyecto
 ![](https://github.com/AlvaroMontesinos/Modulo-2-Proyecto-Final/blob/main/Diagram-Paquetes_Modulo.png?raw=true)![]
@@ -21,4 +21,4 @@ El proyecto tiene como objetivo desarrollar una solución de software aplicando 
 ### Licencias
 El proyecto esta bajo la licencia MIT es una licencia de software que se origina en el Instituto Tecnológico de Massachusetts (MIT, Massachusetts Institute of Technology).  Esta licencia es una Licencia de software libre permisiva lo que significa que impone muy pocas limitaciones en la reutilización y por tanto posee una excelente Compatibilidad de licencia. La licencia MIT permite reutilizar software dentro de Software propietario.
 (https://es.wikipedia.org/wiki/Licencia_MIT)
-###End
+### End
