@@ -21,7 +21,6 @@ from data_processing.encode_dataframe import encoder_dataframe
 from data_processing.image_dimmension import add_dim_images
 from data_processing.image_path import add_route
 from data_processing.create_file import create_file
-from data_processing.download_dataset import import_dataset_kaggle
 
 from data_analysis.imagen import Imagen
 from data_analysis.category import Category
@@ -79,17 +78,7 @@ class Processing:
     var_folder = input('Las imagenes estan en carpetas por categoria? S/N: ' )
     # SI o NO
 
-    var_download = input('desea descargar el dataset desde kaggle? S/N: ' )
-    # SI o NO
 
-    if var_download == 'S':
-        var_aux_user = input('Ingrese usuario: ')
-        var_aux_key = input('Ingrese key: ')
-        var_aux_route = input('Ingrese ruta donde desea guardar la carpeta: ')
-        var_aux_json = input('Ingrese ruta del archivo json: ')
-        var_aux_name_d = input('Ingrese nombre del archivo descargado')
-        import_dataset_kaggle(var_aux_user, var_aux_key
-                              , var_aux_route, var_aux_json, var_aux_name_d)
 
     if var_folder == 'N':
         create_file(var_path, categories)
