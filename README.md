@@ -49,7 +49,7 @@ El proyecto tiene como objetivo desarrollar una solución de software aplicando 
 	-DVC
 
 ### Documentacion
-Las funciones estan debidamente documentadas con docstrings y se genero la documentacion en la carpeta docs con la ayuda de la libreria sphix
+Las funciones estan debidamente documentadas con docstrings y se genero la documentacion en la carpeta docs con la ayuda de la libreria sphinx
 
 ### Licencias
 El proyecto esta bajo la licencia MIT es una licencia de software que se origina en el Instituto Tecnológico de Massachusetts (MIT, Massachusetts Institute of Technology).  Esta licencia es una Licencia de software libre permisiva lo que significa que impone muy pocas limitaciones en la reutilización y por tanto posee una excelente Compatibilidad de licencia. La licencia MIT permite reutilizar software dentro de Software propietario.
