@@ -18,7 +18,8 @@ Para utilizar el presente proyecto se debe ejecutar el modulo main.py desde una 
 	-Categorias de imagenes
 	-Nombre de la columna del dataset donde se encuentra los nombres de las imagenes
 
-Las librerias externas importadas son:
+### Librerias
+Las librerias utilizadas en diferentes funciones, para los test unitarios y para la generacion de la documentacion son las siguientes:
 	-pandas
 	-numpy
 	-os
@@ -32,6 +33,8 @@ Las librerias externas importadas son:
 	-sklearn.preprocessing
 	-tqdm.auto
 	-tkinter.messagebox
+	-sphinx
+	-unittest
 
 ### Descripcion
 El proyecto tiene como objetivo desarrollar una solución de software aplicando buenas prácticas en la codificación (convenciones PEP8) y en la estrategia de modularización,a demas del uso de prubeas unitarias y programación orientada a objetos, permitiendo el registro, modificación y eliminación de imágenes y sus metadatos a través de funciones/métodos desarrollados.
@@ -39,10 +42,15 @@ El proyecto tiene como objetivo desarrollar una solución de software aplicando 
 
 ### Estructura del Proyecto
 ![](https://github.com/AlvaroMontesinos/Modulo-2-Proyecto-Final/blob/main/Diagram-Paquetes_Modulo.png?raw=true)![]
+
 ### Framework
 	-Python
 	-GDrive
 	-DVC
+
+### Documentacion
+Las funciones estan debidamente documentadas con docstrings y se genero la documentacion en la carpeta docs con la ayuda de la libreria 
+
 ### Licencias
 El proyecto esta bajo la licencia MIT es una licencia de software que se origina en el Instituto Tecnológico de Massachusetts (MIT, Massachusetts Institute of Technology).  Esta licencia es una Licencia de software libre permisiva lo que significa que impone muy pocas limitaciones en la reutilización y por tanto posee una excelente Compatibilidad de licencia. La licencia MIT permite reutilizar software dentro de Software propietario.
 (https://es.wikipedia.org/wiki/Licencia_MIT)

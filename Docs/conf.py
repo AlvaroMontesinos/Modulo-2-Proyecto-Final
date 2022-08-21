@@ -16,9 +16,9 @@ sys.path.insert(0, os.path.abspath('..'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'Proyecto_Fina'
-copyright = '2022, varios'
-author = 'varios'
+project = 'Proyecto Final - Modulo 2 Ingenieria de Software'
+copyright = 'Proyecto bajo la licencia MIT'
+author = 'Luis Eduardo Mamani Chambi, Álvaro Andrés Montesinos Miranda, Alfonso Mauricio López Zabalaga'
 
 # The full version, including alpha/beta/rc tags
 release = '0.0.1'
