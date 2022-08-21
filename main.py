@@ -21,6 +21,7 @@ from data_processing.encode_dataframe import encoder_dataframe
 from data_processing.image_dimmension import add_dim_images
 from data_processing.image_path import add_route
 from data_processing.create_file import create_file
+from data_processing.download_dataset import import_dataset_kaggle
 
 from data_analysis.imagen import Imagen
 from data_analysis.category import Category
@@ -44,7 +45,7 @@ class Processing:
           '\n- Lista con las categorias de las imagenes.'+
           '\n- Ubicacion de la carpeta con imagenes y '+
           'los sets de datos en formato .xlsx o .csv'+
-          '\n- Nombre de la columna con el nombre de las imagenes. '+         
+          '\n- Nombre de la columna con el nombre de las imagenes. '+
           '\n- Nombre del subfolder con las imagenes en la ubicacion.')
 
     print('\nEl dataset generado contendra las siguientes columnas:'+
@@ -55,8 +56,7 @@ class Processing:
           '\n- Columnas con el alto y ancho de las imagenes.\n')
 
     categories = []
-    var_cat = int(input('''Ingrese el numero de categorias
-                         seguido de las categorias: '''))
+    var_cat = int(input('''Ingrese el Nro de categorias y categorias: '''))
     #['COVID', 'Lung_Opacity', 'Normal', 'Viral Pneumonia']
 
     for i in range(0, var_cat):
@@ -76,11 +76,22 @@ class Processing:
     var_format = input('Ingrese el formato de archivo XLSX/CSV: ' )
     # XLSX o CSV
 
-    var_folder = input('''Las imagenes se encuentran 
-                       en carpetas por categoria? SI/NO: ''' )
+    var_folder = input('Las imagenes estan en carpetas por categoria? S/N: ' )
     # SI o NO
 
-    if var_folder == 'NO':
+    var_download = input('desea descargar el dataset desde kaggle? S/N: ' )
+    # SI o NO
+
+    if var_download == 'S':
+        var_aux_user = input('Ingrese usuario: ')
+        var_aux_key = input('Ingrese key: ')
+        var_aux_route = input('Ingrese ruta donde desea guardar la carpeta: ')
+        var_aux_json = input('Ingrese ruta del archivo json: ')
+        var_aux_name_d = input('Ingrese nombre del archivo descargado')
+        import_dataset_kaggle(var_aux_user, var_aux_key
+                              , var_aux_route, var_aux_json, var_aux_name_d)
+
+    if var_folder == 'N':
         create_file(var_path, categories)
 
     if var_format == 'XLSX':

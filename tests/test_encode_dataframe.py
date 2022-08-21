@@ -19,8 +19,8 @@ dataset = encoder_dataframe(dataset, 'CATEGORY')
 class TestEncodeDataframe(unittest.TestCase):
     """Test to verify encode column in dataframe
     """
-    def test_image_height(self):
-        '''test to verify image height'''
+    def test_encode_dataframe(self):
+        '''test to verify  encode column in dataframe'''
         res = dataset.loc[dataset['FILE NAME'] == name]
         res = res.iloc[0]['CATEGORY_ID']
         self.assertEqual(res,0)

@@ -22,7 +22,7 @@ dataset = add_route(dataset, path, column_name)
 class TestImageRoute(unittest.TestCase):
     """Test to verify a new column with route of image
     """
-    def test_image_height(self):
+    def test_image_path(self):
         '''test to verify route of image'''
         res = dataset.loc[dataset['FILE NAME'] == name]
         res = res.iloc[0]['ROUTE']

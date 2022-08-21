@@ -1,4 +1,3 @@
-import plotext as pltd
 import pandas as pd
 import cv2
 import random
@@ -26,11 +25,16 @@ class CategoryAditionalFunction:
                            , as_index=False)['CATEGORY_ID'].count())
         df_aux1 = df_aux['CATEGORY'].to_numpy()
         df_aux2 = df_aux['CATEGORY_ID'].to_numpy()
-        pltd.bar(df_aux1, df_aux2, orientation='h', width=0.3, marker='fhd')
-        pltd.title('Numbre of images per Category')
-        pltd.clc()
-        pltd.plot_size(200, 50)
-        return pltd.show()
+        plt.rcdefaults()
+        fig, ax = plt.subplots()
+        imagenes = (len(df_aux1))
+
+        ax.barh(df_aux1, df_aux2, align='center')
+        ax.invert_yaxis()
+        ax.set_xlabel('Imagenes')
+        ax.set_title('Grafico de imagen por categoria')
+        plt.show()
+        fig.savefig('nueva_imagen.jpeg', dpi = 100)
 
     def visualize_all(self):
         """3 random images per catogory
