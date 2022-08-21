@@ -11,14 +11,32 @@
 	-Álvaro Andrés Montesinos Miranda
 	-Alfonso Mauricio López Zabalaga
 
-### Descripcion
-El proyecto tiene como objetivo desarrollar una solución de software aplicando buenas prácticas en la codificación, en la estrategia de modularización, como en la programación orientada a objetos, que permita registro, modificación y eliminación de imágenes y sus metadatos a través de funciones/métodos desarrollados.
-
+### Instalacion y uso
 Para utilizar el presente proyecto se debe ejecutar el modulo main.py desde una terminal con acceso a python, a continuacion se desplegara un menu con las indicacion correspondientes para su uso. El proyecto puede ser utilizado para diferentes set de datos, siempre y cuando cumplan las siguientes caracteristicas:
 	-Carpeta con dataset en formato .xlsx o .csv
 	-Carpeta con imagenes
 	-Categorias de imagenes
 	-Nombre de la columna del dataset donde se encuentra los nombres de las imagenes
+
+Las librerias externas importadas son:
+	-pandas
+	-numpy
+	-os
+	-random
+	-cv2
+	-unittest
+	-statistics
+	-matplotlib
+	-PIL
+	-json
+	-sklearn.preprocessing
+	-tqdm.auto
+	-tkinter.messagebox
+
+### Descripcion
+El proyecto tiene como objetivo desarrollar una solución de software aplicando buenas prácticas en la codificación (convenciones PEP8) y en la estrategia de modularización,a demas del uso de prubeas unitarias y programación orientada a objetos, permitiendo el registro, modificación y eliminación de imágenes y sus metadatos a través de funciones/métodos desarrollados.
+
+
 ### Estructura del Proyecto
 ![](https://github.com/AlvaroMontesinos/Modulo-2-Proyecto-Final/blob/main/Diagram-Paquetes_Modulo.png?raw=true)![]
 ### Framework

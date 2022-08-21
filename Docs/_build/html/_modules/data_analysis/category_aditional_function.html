@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>data_analysis.category_aditional_function &mdash; Proyecto_Fina 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Proyecto_Fina
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Proyecto_Final</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Proyecto_Fina</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>data_analysis.category_aditional_function</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for data_analysis.category_aditional_function</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<div class="viewcode-block" id="CategoryAditionalFunction"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.category_aditional_function.CategoryAditionalFunction">[docs]</a><span class="k">class</span> <span class="nc">CategoryAditionalFunction</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Aditional functions (Graphic of image per category</span>
+<span class="sd">    , visualization of 3 random images per category</span>
+<span class="sd">    , most and less repeated category by number of images)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">categories</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">categories</span> <span class="o">=</span> <span class="n">categories</span>
+
+<div class="viewcode-block" id="CategoryAditionalFunction.count_graph_category"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.category_aditional_function.CategoryAditionalFunction.count_graph_category">[docs]</a>    <span class="k">def</span> <span class="nf">count_graph_category</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Graphic of categorias by number of images</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Plot: number of images by category</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">df_aux</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span>
+                           <span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;CATEGORY_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+        <span class="n">df_aux1</span> <span class="o">=</span> <span class="n">df_aux</span><span class="p">[</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">df_aux2</span> <span class="o">=</span> <span class="n">df_aux</span><span class="p">[</span><span class="s1">&#39;CATEGORY_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">rcdefaults</span><span class="p">()</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+        <span class="n">imagenes</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df_aux1</span><span class="p">))</span>
+
+        <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">df_aux1</span><span class="p">,</span> <span class="n">df_aux2</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Imagenes&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Grafico de imagen por categoria&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;nueva_imagen.jpeg&#39;</span><span class="p">,</span> <span class="n">dpi</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CategoryAditionalFunction.visualize_all"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.category_aditional_function.CategoryAditionalFunction.visualize_all">[docs]</a>    <span class="k">def</span> <span class="nf">visualize_all</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;3 random images per catogory</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Array of random images separated by category</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">len_cat</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;CATEGORY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> 
+        <span class="n">images</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">num_images</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">cat</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;CATEGORY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">classes</span> <span class="ow">in</span> <span class="n">cat</span><span class="p">:</span>
+            <span class="nb">vars</span><span class="p">()[</span><span class="n">classes</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span>
+                <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">classes</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_images</span><span class="p">):</span>
+                <span class="n">aux_1</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">()[</span><span class="n">classes</span><span class="p">]</span>
+
+                <span class="n">random_image</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">aux_1</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="p">[</span><span class="n">aux_1</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">random_image</span><span class="p">,</span><span class="s2">&quot;ROUTE&quot;</span><span class="p">]</span>
+                            <span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">categories</span><span class="p">[</span><span class="n">aux_1</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="n">random_image</span>
+                                                      <span class="p">,</span><span class="s2">&quot;CATEGORY_ID&quot;</span><span class="p">]]])</span>
+
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">sample</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">images</span><span class="p">):</span>
+            <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="n">len_cat</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">index</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">sample</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">([]),</span> <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span></div>
+
+<div class="viewcode-block" id="CategoryAditionalFunction.most_repeated_category"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.category_aditional_function.CategoryAditionalFunction.most_repeated_category">[docs]</a>    <span class="k">def</span> <span class="nf">most_repeated_category</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Category with most images</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: category with most images</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span>
+                                 <span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;CATEGORY_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+        <span class="n">cat_max</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_aux</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+        <span class="n">cat_max</span> <span class="o">=</span> <span class="n">cat_max</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">cat_max</span> <span class="o">=</span> <span class="n">cat_max</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">cat_max</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="CategoryAditionalFunction.less_repeated_category"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.category_aditional_function.CategoryAditionalFunction.less_repeated_category">[docs]</a>    <span class="k">def</span> <span class="nf">less_repeated_category</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Category with less images</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: category with less images</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span>
+                                 <span class="p">,</span> <span class="n">as_index</span><span class="o">=</span><span class="kc">False</span><span class="p">)[</span><span class="s1">&#39;CATEGORY_ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">())</span>
+        <span class="n">cat_min</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">df_aux</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+        <span class="n">cat_min</span> <span class="o">=</span> <span class="n">cat_min</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">cat_min</span> <span class="o">=</span> <span class="n">cat_min</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="n">cat_min</span><span class="p">)</span></div></div>
+    
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, varios.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>data_processing package &mdash; Proyecto_Fina 0.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="tests package" href="tests.html" />
+    <link rel="prev" title="data_analysis package" href="data_analysis.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Proyecto_Fina
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Proyecto_Final</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="data_analysis.html">data_analysis package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">data_processing package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-processing-create-file-module">data_processing.create_file module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data_processing.encode_dataframe">data_processing.encode_dataframe module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-processing-image-dimmension-module">data_processing.image_dimmension module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-processing-image-path-module">data_processing.image_path module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data_processing.set_to_dataframe">data_processing.set_to_dataframe module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-processing-xlsx-to-csv-module">data_processing.xlsx_to_csv module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-data_processing">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="tests.html">tests package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Proyecto_Fina</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="modules.html">Proyecto_Final</a> &raquo;</li>
+      <li>data_processing package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/data_processing.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-processing-package">
+<h1>data_processing package<a class="headerlink" href="#data-processing-package" title="Permalink to this headline"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
+</section>
+<section id="data-processing-create-file-module">
+<h2>data_processing.create_file module<a class="headerlink" href="#data-processing-create-file-module" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-data_processing.create_file"></span><dl class="py function">
+<dt class="sig sig-object py" id="data_processing.create_file.create_file">
+<span class="sig-prename descclassname"><span class="pre">data_processing.create_file.</span></span><span class="sig-name descname"><span class="pre">create_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categories</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_processing/create_file.html#create_file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#data_processing.create_file.create_file" title="Permalink to this definition"></a></dt>
+<dd><p>Creation of folder andd assgin images in folders</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<em>string</em>) – route of files</p></li>
+<li><p><strong>categories</strong> (<em>list</em>) – list of categories</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>folders with images separated by categories</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-data_processing.encode_dataframe">
+<span id="data-processing-encode-dataframe-module"></span><h2>data_processing.encode_dataframe module<a class="headerlink" href="#module-data_processing.encode_dataframe" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="data_processing.encode_dataframe.encoder_dataframe">
+<span class="sig-prename descclassname"><span class="pre">data_processing.encode_dataframe.</span></span><span class="sig-name descname"><span class="pre">encoder_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">category</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_processing/encode_dataframe.html#encoder_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#data_processing.encode_dataframe.encoder_dataframe" title="Permalink to this definition"></a></dt>
+<dd><p>Assign a code by category in a new column</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>dataframe</em>) – dataframe where categories are</p></li>
+<li><p><strong>category</strong> (<em>string</em>) – name of columnd which will be encode</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dataframe with encoder category column</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="data-processing-image-dimmension-module">
+<h2>data_processing.image_dimmension module<a class="headerlink" href="#data-processing-image-dimmension-module" title="Permalink to this headline"></a></h2>
+</section>
+<section id="data-processing-image-path-module">
+<h2>data_processing.image_path module<a class="headerlink" href="#data-processing-image-path-module" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-data_processing.image_path"></span><dl class="py function">
+<dt class="sig sig-object py" id="data_processing.image_path.add_route">
+<span class="sig-prename descclassname"><span class="pre">data_processing.image_path.</span></span><span class="sig-name descname"><span class="pre">add_route</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_name_column</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_processing/image_path.html#add_route"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#data_processing.image_path.add_route" title="Permalink to this definition"></a></dt>
+<dd><p>Add new column with the route of the image</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>dataframe</em>) – dataframe whre images are located</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – route where images are located</p></li>
+<li><p><strong>file_name_column</strong> (<em>string</em>) – name of the column of image name</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dataframe with route of images added</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-data_processing.set_to_dataframe">
+<span id="data-processing-set-to-dataframe-module"></span><h2>data_processing.set_to_dataframe module<a class="headerlink" href="#module-data_processing.set_to_dataframe" title="Permalink to this headline"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="data_processing.set_to_dataframe.set_to_dataframe">
+<span class="sig-prename descclassname"><span class="pre">data_processing.set_to_dataframe.</span></span><span class="sig-name descname"><span class="pre">set_to_dataframe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_processing/set_to_dataframe.html#set_to_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#data_processing.set_to_dataframe.set_to_dataframe" title="Permalink to this definition"></a></dt>
+<dd><p>Convert file .CSV to dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>categories</strong> (<em>array</em>) – arrays of categories</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – route of .csv file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dataframe generated from .csv file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="data-processing-xlsx-to-csv-module">
+<h2>data_processing.xlsx_to_csv module<a class="headerlink" href="#data-processing-xlsx-to-csv-module" title="Permalink to this headline"></a></h2>
+<span class="target" id="module-data_processing.xlsx_to_csv"></span><dl class="py function">
+<dt class="sig sig-object py" id="data_processing.xlsx_to_csv.xlsx_to_csv">
+<span class="sig-prename descclassname"><span class="pre">data_processing.xlsx_to_csv.</span></span><span class="sig-name descname"><span class="pre">xlsx_to_csv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">categories</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/data_processing/xlsx_to_csv.html#xlsx_to_csv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#data_processing.xlsx_to_csv.xlsx_to_csv" title="Permalink to this definition"></a></dt>
+<dd><p>convert files .xlsx to .csv</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>categories</strong> (<em>list</em>) – list of categories</p></li>
+<li><p><strong>path</strong> (<em>string</em>) – route of file where .xlsx is located</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>.csv files</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>.CSV</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-data_processing">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-data_processing" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="data_analysis.html" class="btn btn-neutral float-left" title="data_analysis package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tests.html" class="btn btn-neutral float-right" title="tests package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, varios.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

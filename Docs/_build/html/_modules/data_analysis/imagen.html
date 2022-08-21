@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>data_analysis.imagen &mdash; Proyecto_Fina 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> Proyecto_Fina
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">Proyecto_Final</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Proyecto_Fina</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>data_analysis.imagen</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for data_analysis.imagen</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<div class="viewcode-block" id="Imagen"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen">[docs]</a><span class="k">class</span> <span class="nc">Imagen</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Atributes and functions of images which are in a dataset</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">file_name_column</span><span class="p">,</span> <span class="n">subfolder</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span> <span class="o">=</span> <span class="n">file_name_column</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">subfolder</span> <span class="o">=</span> <span class="n">subfolder</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">height</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">width</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">category_image</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Imagen.height"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.height">[docs]</a>    <span class="k">def</span> <span class="nf">height</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Hight of image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: Hight of image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">var_aux</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subfolder</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_HEIGHT&#39;</span>
+        <span class="n">res_aux</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">var_aux</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">res_aux</span></div>
+
+<div class="viewcode-block" id="Imagen.width"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.width">[docs]</a>    <span class="k">def</span> <span class="nf">width</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Width of image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: Width of image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">var_aux</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">subfolder</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;_WIDTH&#39;</span>
+        <span class="n">res_aux</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">var_aux</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">res_aux</span></div>
+
+<div class="viewcode-block" id="Imagen.category_image"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.category_image">[docs]</a>    <span class="k">def</span> <span class="nf">category_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Category of image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: Category of image</span>
+<span class="sd">        &quot;&quot;&quot;</span>   
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">res_aux</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">res_aux</span></div>
+
+
+<div class="viewcode-block" id="Imagen.rename_image"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.rename_image">[docs]</a>    <span class="k">def</span> <span class="nf">rename_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Rename_image</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            new_name (string): new name of image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: image renamed</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">last_image</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ROUTE&#39;</span><span class="p">]</span>
+        <span class="n">cat_image</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;CATEGORY&#39;</span><span class="p">]</span>
+        <span class="n">new_image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">cat_image</span> <span class="o">+</span><span class="s2">&quot;/images/&quot;</span><span class="o">+</span> <span class="n">new_name</span> <span class="o">+</span> <span class="s1">&#39;.png&#39;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">last_image</span><span class="p">,</span> <span class="n">new_image</span><span class="p">)</span>
+        <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">to_replace</span><span class="o">=</span><span class="n">last_image</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">new_image</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Imagen &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> 
+                     <span class="o">+</span><span class="s1">&#39; cambio su nombre a: &#39;</span> <span class="o">+</span> <span class="n">new_name</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Imagen.delete_image"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.delete_image">[docs]</a>    <span class="k">def</span> <span class="nf">delete_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Delete image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            String: deleted image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">route_image</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ROUTE&#39;</span><span class="p">]</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">route_image</span><span class="p">)</span>
+        <span class="n">df_2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;ROUTE&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">route_image</span><span class="p">]</span>
+        <span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">df_2</span> <span class="o">=</span> <span class="n">df_2</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;index&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Imagen &#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">+</span><span class="s1">&#39; removida correctamente&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="Imagen.visualize_img_category"><a class="viewcode-back" href="../../data_analysis.html#data_analysis.imagen.Imagen.visualize_img_category">[docs]</a>    <span class="k">def</span> <span class="nf">visualize_img_category</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Visualization of the image</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            Image: visualization of the image</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">dataset</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">file_name_column</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="n">df_aux</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="n">var</span> <span class="o">=</span> <span class="n">df_aux</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;ROUTE&quot;</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;figure.figsize&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+        <span class="n">img</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+        <span class="c1">#plt.title(self.name)</span>
+        <span class="c1">#plt.imshow(img)</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="n">img</span><span class="p">)</span>
+        <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, varios.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
