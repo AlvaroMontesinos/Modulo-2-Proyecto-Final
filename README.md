@@ -6,12 +6,19 @@
 
 **Table of Contents**
 
-[TOCM]
-
-[TOC]
+### Autores
+	-Luis Eduardo Mamani Chambi
+	-Álvaro Andrés Montesinos Miranda
+	-Alfonso Mauricio López Zabalaga
 
 ### Descripcion
 El proyecto tiene como objetivo desarrollar una solución de software aplicando buenas prácticas en la codificación, en la estrategia de modularización, como en la programación orientada a objetos, que permita registro, modificación y eliminación de imágenes y sus metadatos a través de funciones/métodos desarrollados.
+
+Para utilizar el presente proyecto se debe ejecutar el modulo main.py desde una terminal con acceso a python, a continuacion se desplegara un menu con las indicacion correspondientes para su uso. El proyecto puede ser utilizado para diferentes set de datos, siempre y cuando cumplan las siguientes caracteristicas:
+	-Carpeta con dataset en formato .xlsx o .csv
+	-Carpeta con imagenes
+	-Categorias de imagenes
+	-Nombre de la columna del dataset donde se encuentra los nombres de las imagenes
 ### Estructura del Proyecto
 ![](https://github.com/AlvaroMontesinos/Modulo-2-Proyecto-Final/blob/main/Diagram-Paquetes_Modulo.png?raw=true)![]
 ### Framework
